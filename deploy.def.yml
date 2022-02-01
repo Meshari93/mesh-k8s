@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 Kind: Deployment
 metadata:
-  name: myapp-deploy
+  name: mesh-app-deploy
+  labels: 
+   app: mesh-app
+   type: front-end
 spec:
  template:
   metadata: 
    name: first-api-dec
    labels:
-    app: myapp
-    type: restapi 
-  spec:
-   containers:
-   - name: simple-api
-    image: mesh
-  replicas: 6
-  selector:
-   matchLabels: 
-    app: myapp
-    type: restapi
-   
-    
+    app: mesh-app
+    type: front-end 
+   spec:
+    containers:
+    - name: simple-api
+      image: meshach93/meshed:v1
+      ports: 80
+ replicas: 6
+ selector:
+  matchLabels: 
+   app: mesh-app
+   type: front-end
