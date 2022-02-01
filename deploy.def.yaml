@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mesh-app-deploy
+  name: mesh-deploy
   labels: 
    app: mesh-app
    type: front-end
@@ -10,16 +10,16 @@ spec:
  selector:
   matchLabels: 
    app: mesh-app
-   type: front-end
+   type: mesh-front-end
  template:
   metadata: 
    name: first-api-dec
    labels:
     app: mesh-app
-    type: front-end 
+    type: mesh-front-end
   spec:
    containers:
    - name: simple-api
-     image: meshari93/meshed:v1
+     image: meshari93/mesh-web:v1
      ports:
         - containerPort: 80 
