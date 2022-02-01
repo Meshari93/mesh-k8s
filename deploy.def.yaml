@@ -20,6 +20,6 @@ spec:
   spec:
    containers:
    - name: simple-api
-     image: meshach93/meshed:v1
+     image: meshari93/meshed:v1
      ports:
         - containerPort: 80
