@@ -1,0 +1,11 @@
+apiVersion: v1
+Kind: Service
+metadata:
+ name: mesh-service
+spec:
+ selector:
+  type: webserver
+ type: NodePort
+ ports:
+ - protocol: TCP
+   port: 80
