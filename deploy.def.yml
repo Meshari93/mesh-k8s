@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+Kind: Deployment
+metadata:
+  name: myapp-deploy
+spec:
+ template:
+  metadata: 
+   name: first-api-dec
+   labels:
+    app: myapp
+    type: restapi 
+  spec:
+   containers:
+   - name: simple-api
+    image: mesh
+  replicas: 6
+  selector:
+   matchLabels: 
+    app: myapp
+    type: restapi
+   
+    
